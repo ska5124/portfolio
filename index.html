@@ -579,7 +579,7 @@
         width: 55%;
         right: -7%;
         top: 50%;
-        opacity: .45;
+        opacity: 1; /* 모바일 TV 인트로 종료 후에도 불투명 유지 */
       }
 
       .panel-hello .eyebrow {
@@ -1522,6 +1522,11 @@
       transform: translate(calc(-50% + var(--mx, 0px)), calc(-50% + var(--my, 0px)));
       transition: transform .22s ease-out;
       will-change: transform;
+    }
+
+    /* TV 등장 애니메이션 종료 후 모바일/태블릿에서 반투명해지는 현상 방지 */
+    @media (max-width:900px) {
+      .panel-hello>.tv-art { opacity: 1; }
     }
 
     /* HOME TV position: responsive overrides (one final definition per breakpoint) */

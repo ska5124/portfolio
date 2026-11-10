@@ -3130,10 +3130,43 @@
       else setScene(sceneIndex + direction);
     }
     viewport.addEventListener('wheel', e => { e.preventDefault(); onWheel(e.deltaY) }, { passive: false });
+    // 모바일: 세로 스와이프를 WORK 가로 레일 이동으로 변환.
+    // 브라우저의 기본 세로 스크롤을 차단하여 빈 화면으로 밀리는 현상을 방지한다.
     let touchY = null;
-    viewport.addEventListener('touchstart', e => { touchY = e.touches[0].clientY }, { passive: true });
-    viewport.addEventListener('touchmove', e => { if (touchY === null) return; const y = e.touches[0].clientY; onWheel((touchY - y) * 2); touchY = y }, { passive: true });
-    viewport.addEventListener('touchend', () => touchY = null);
+    let touchStartY = null;
+    let touchStartX = null;
+    let touchIsScrolling = false;
+    viewport.addEventListener('touchstart', e => {
+      if (detailOpen || e.touches.length !== 1) return;
+      touchY = touchStartY = e.touches[0].clientY;
+      touchStartX = e.touches[0].clientX;
+      touchIsScrolling = false;
+    }, { passive: true });
+    viewport.addEventListener('touchmove', e => {
+      if (detailOpen || touchY === null || e.touches.length !== 1) return;
+      const y = e.touches[0].clientY;
+      const x = e.touches[0].clientX;
+      if (!touchIsScrolling) {
+        const dy = Math.abs(y - touchStartY);
+        const dx = Math.abs(x - touchStartX);
+        if (Math.max(dy, dx) < 8) return;
+        // 세로 제스처에만 개입. 수평 제스처는 기본 동작을 유지한다.
+        if (dx > dy) { touchY = null; return; }
+        touchIsScrolling = true;
+      }
+      if (e.cancelable) e.preventDefault();
+      const delta = (touchY - y) * 2;
+      touchY = y;
+      onWheel(delta);
+    }, { passive: false });
+    viewport.addEventListener('touchend', () => {
+      touchY = touchStartY = touchStartX = null;
+      touchIsScrolling = false;
+    });
+    viewport.addEventListener('touchcancel', () => {
+      touchY = touchStartY = touchStartX = null;
+      touchIsScrolling = false;
+    });
     function goTo(id) {
       const i = panels.findIndex(p => p.id === id);
       if (i < 0) return;
@@ -3390,7 +3423,7 @@
         cableDelay: 3100,         // 양쪽 전선이 뻗기 시작하는 시점
         cableDuration: 1800,      // 전선이 양쪽 끝까지 뻗는 시간
         lightStart: 5150,         // 첫 번째 불빛 출발
-        lightCount: 3,            // 동시에 순환하는 불빛 개수
+        lightCount: 2,            // 동시에 순환하는 불빛 개수
         lightSpacing: 2050,       // 불빛 사이 출발 간격
         tvPassDelay: 3600,        // 왼쪽 빛 출발 후 오른쪽 빛 출발까지
         lightDuration: 4900       // 각 전선 위에서 빛이 이동하는 시간

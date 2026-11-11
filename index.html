@@ -2924,7 +2924,7 @@
                 <video class="tv-video" src="videos/janghwa.mp4" muted loop playsinline preload="none"></video>
                 <!-- 영상 3: 여름 음료 광고 -->
                 <video class="tv-video" src="videos/summer.mp4" muted loop playsinline preload="none"></video>
-                <div class="tv-fallback" id="tvFallback"><span>CH 01</span><strong>MOVV</strong><small>YOUR VIDEO
+                <div class="tv-fallback" id="tvFallback"><span>CH 01</span><strong>MOVV</strong><small>
                     HERE</small></div>
                 <div class="tv-shutter" id="tvShutter"></div>
                 <!-- 채널 변경 시에만 표시되는 아날로그 노이즈 -->
@@ -3441,7 +3441,7 @@
       const active = tvVideos[tvIndex];
       tvChannel.textContent = `CH 0${tvIndex + 1}`;
       tvFallback.style.background = tvColors[tvIndex];
-      tvFallback.innerHTML = `<span>CH 0${tvIndex + 1}</span><strong>${tvNames[tvIndex]}</strong><small>YOUR VIDEO HERE</small>`;
+      tvFallback.innerHTML = `<span>CH 0${tvIndex + 1}</span><strong>${tvNames[tvIndex]}</strong><small></small>`;
       updateTvFallback();
       active.play().catch(() => { });
     }

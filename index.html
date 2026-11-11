@@ -13,7 +13,7 @@
     @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap");
 
     /* =============================================================
-       ★ 수정 안내서 — Ctrl+F로 아래 검색어를 찾으면 돼
+       ★ 수정 안내서 — Ctrl+F
        -------------------------------------------------------------
        [PORTFOLIO 글자]  .panel-hello h1  (기본 디자인)
        [PORTFOLIO 자간]  --home-title-spacing-end (최종 자간)
@@ -32,35 +32,24 @@
        ※ 기존 디자인 보존을 위해 다른 선택자에 걸친 CSS 우선순위는 유지.
        ============================================================= */
     :root {
-      /* ★ HOME PORTFOLIO 자간: 여기만 변경하면 CSS와 모션 종료값이 함께 바뀜 */
       --home-title-spacing-start: .10em;
       --home-title-spacing-end: .02em;
     }
 
-    * {
-      box-sizing: border-box
-    }
+    * {box-sizing: border-box}
 
-    html {
-      scroll-behavior: smooth
-    }
+    html {scroll-behavior: smooth}
 
-    body {
-      margin: 0;
+    body {margin: 0;
       background: #0b0d0a;
       color: #f5f0e8;
       font-family: "DM Sans", Arial, sans-serif;
-      overflow-x: hidden
-    }
+      overflow-x: hidden}
 
-    a {
-      color: inherit;
-      text-decoration: none
-    }
+    a {color: inherit;
+      text-decoration: none}
 
-    .brand {
-      font-size: 21px
-    }
+    .brand {font-size: 21px}
 
     .availability {
       border: 1px solid #ffffff7c;
@@ -68,8 +57,7 @@
       padding: 6px 13px;
       font-size: 14px;
       font-weight: 500;
-      white-space: nowrap
-    }
+      white-space: nowrap}
 
     .availability .status-dot {
       display: inline-block;
@@ -78,59 +66,37 @@
       background: #98e68d;
       border-radius: 50%;
       margin-right: 7px;
-      box-shadow: 0 0 10px #b1ffc2
-    }
+      box-shadow: 0 0 10px #b1ffc2}
 
-    .topnav a:hover {
-      opacity: .55
-    }
+    .topnav a:hover {opacity: .55}
 
     .eyebrow {
       font-family: "Barlow Condensed", sans-serif;
       letter-spacing: .13em;
       font-size: 17px;
-      font-weight: 600
-    }
+      font-weight: 600}
 
     .hello-copy {
       position: relative;
       z-index: 2;
-      width: 58%
-    }
+      width: 58%}
 
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0
-    }
+    h1,h2,h3,p {margin-top: 0}
 
-    h1,
-    h2 {
-      font-family: "Barlow Condensed", Impact, sans-serif;
+    h1,h2 
+    {font-family: "Barlow Condensed", Impact, sans-serif;
       font-weight: 900;
       line-height: .77;
-      letter-spacing: -.018em
-    }
+      letter-spacing: -.018em}
 
-    h1 {
-      font-size: clamp(100px, 15vw, 300px);
-      margin: 34px 0 30px
-    }
+    h1 {font-size: clamp(100px, 15vw, 300px);margin: 34px 0 30px}
 
-    h1 span {
-      white-space: nowrap
-    }
+    h1 span {white-space: nowrap}
 
-    h1 b,
-    h2 span {
-      color: #d9e8a6
-    }
+    h1 b,h2 span {color: #d9e8a6}
 
-    .description {
-      font-size: clamp(15px, 1.4vw, 20px);
-      line-height: 1.55
-    }
+    .description {font-size: clamp(15px, 1.4vw, 20px);
+      line-height: 1.55}
 
     .discover {
       display: inline-flex;
@@ -142,12 +108,9 @@
       font-family: "Barlow Condensed";
       font-size: 20px;
       font-weight: 700;
-      letter-spacing: .07em
-    }
+      letter-spacing: .07em}
 
-    .discover span {
-      font-size: 27px
-    }
+    .discover span {font-size: 27px}
 
     .hero-art {
       position: absolute;
@@ -159,11 +122,7 @@
       transition: transform .35s ease-out
     }
 
-    @keyframes float {
-      50% {
-        transform: translateY(-13px) rotate(2deg)
-      }
-    }
+    @keyframes float {50% {transform: translateY(-13px) rotate(2deg)}}
 
     .section-head {
       display: grid;
@@ -2834,6 +2793,22 @@
       .panel-hello .tv-knob-small { width: 30px; font-size: 16px; }
     }
 
+
+    /* 스토리보드 PDF: 상세페이지 위에 표시되는 미리보기 */
+    .storyboard-modal { position: fixed; inset: 0; z-index: 120; display: none; align-items: center; justify-content: center; padding: clamp(12px, 3vw, 38px); background: rgba(18, 17, 29, .78); }
+    .storyboard-modal.open { display: flex; }
+    .storyboard-modal-dialog { width: min(100%, 1080px); height: min(92%, 900px); min-height: 0; display: flex; flex-direction: column; background: #f5f0e8; color: #28233a; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 65px #15122277; }
+    .storyboard-modal-bar { display: flex; align-items: center; gap: 12px; justify-content: space-between; padding: 12px 18px; background: #514568; color: #f5f0e8; font: 700 16px "Barlow Condensed", sans-serif; letter-spacing: .04em; }
+    .storyboard-modal-actions { display: flex; gap: 8px; align-items: center; }
+    .storyboard-modal-actions a, .storyboard-modal-actions button { background: transparent; border: 1px solid #f5f0e877; color: inherit; padding: 8px 12px; border-radius: 20px; font: inherit; cursor: pointer; }
+    .storyboard-modal-actions button { font-size: 21px; line-height: 1; padding: 5px 11px; }
+    .storyboard-pdf { flex: 1; min-height: 0; width: 100%; border: 0; background: #f5f0e8; }
+    @media (max-width: 600px) {
+      .storyboard-modal { padding: 8px; }
+      .storyboard-modal-dialog { height: 94%; border-radius: 11px; }
+      .storyboard-modal-bar { padding: 10px; font-size: 13px; }
+      .storyboard-modal-actions a { font-size: 12px; padding: 7px; }
+    }
   </style>
 </head>
 
@@ -2921,21 +2896,21 @@
             <p>SCROLL TO EXPLORE THE WORKS <span>→</span></p>
           </div>
           <a href="#detail-movv" class="project work-card" data-project="movv">
-            <div class="thumb"><!-- 작품 1 썸네일: MOVV / images/movv.png 교체 --><img src="images/movv.png"
+            <div class="thumb"><img src="images/movv.png"
                 alt="MOVV 스마트 캐리어 광고 썸네일"></div>
             <div class="project-meta"><span>01 / AI COMMERCIAL</span><span>2026</span></div>
             <h3>MOVV</h3>
             <p class="work-subtitle">스마트 캐리어 브랜드 광고</p>
           </a>
           <a href="#detail-janghwa" class="project work-card" data-project="janghwa">
-            <div class="thumb"><!-- 작품 2 썸네일: 장화홍련 / images/janghwa.png 교체 --><img src="images/janghwa.png"
+            <div class="thumb"><img src="images/janghwa.png"
                 alt="장화홍련 모션 타이틀 썸네일"></div>
             <div class="project-meta"><span>02 / TITLE SEQUENCE</span><span>2026</span></div>
             <h3>장화홍련</h3>
             <p class="work-subtitle">2D 모션그래픽 오프닝 타이틀</p>
           </a>
           <a href="#detail-summer" class="project work-card" data-project="summer">
-            <div class="thumb"><!-- 작품 3 썸네일: 여름 음료 광고 / images/summer.png 교체 --><img src="images/summer.png"
+            <div class="thumb"><img src="images/summer.png"
                 alt="여름 음료 광고 썸네일"></div>
             <div class="project-meta"><span>03 / AI COMMERCIAL</span><span>2026</span></div>
             <h3>FILL THE SUMMER</h3>
@@ -3010,8 +2985,7 @@
             <h2 id="detailTitle">MOVV</h2>
             <p id="detailSubtitle" class="detail-subtitle">스마트 캐리어 브랜드 광고</p>
             <!-- 스토리보드 PDF 링크: JavaScript detailData의 storyboard 경로를 작품별로 수정 -->
-            <a id="storyboardLink" class="storyboard-link" href="pdf/movv-storyboard.pdf" target="_blank"
-              rel="noopener noreferrer">스토리보드 보러가기 <span aria-hidden="true">↗</span></a>
+            <a id="storyboardLink" class="storyboard-link" href="pdf/movv-storyboard.pdf" >스토리보드 보러가기 <span aria-hidden="true">↗</span></a>
           </div>
           <div class="detail-video-wrap">
             <!-- 작품 상세 영상: JavaScript의 detailData에 있는 video 경로 수정 -->
@@ -3048,6 +3022,20 @@
     </div>
   </div>
   <!-- 스크롤과 인터랙션(JavaScript): 이 HTML 파일 안에서 수정 -->
+
+    <!-- 스토리보드 PDF 미리보기: 새 탭 대신 현재 화면 위에 표시 -->
+    <div id="storyboardModal" class="storyboard-modal" role="dialog" aria-modal="true" aria-label="스토리보드 PDF 미리보기" aria-hidden="true">
+      <div class="storyboard-modal-dialog">
+        <div class="storyboard-modal-bar">
+          <span id="storyboardModalTitle">STORYBOARD</span>
+          <div class="storyboard-modal-actions">
+            <a id="storyboardOpenExternal" href="pdf/movv-storyboard.pdf" target="_blank" rel="noopener noreferrer">새 탭에서 보기 ↗</a>
+            <button type="button" id="storyboardModalClose" aria-label="스토리보드 닫기">×</button>
+          </div>
+        </div>
+        <iframe id="storyboardPdf" class="storyboard-pdf" title="스토리보드 PDF" loading="lazy"></iframe>
+      </div>
+    </div>
   <script>
     // 프레임은 고정. 휠은 장면 전환, WORK에서는 가로 이동에 사용.
     const frame = document.getElementById('frame');
@@ -3238,6 +3226,34 @@
         tools: 'AI 영상 제작 · Premiere Pro'
       }
     };
+
+    // 스토리보드 PDF: 상세페이지 위에서 열기 (브라우저별 PDF 지원 차이 대비 외부 열기 제공)
+    const storyboardLink = document.getElementById('storyboardLink');
+    const storyboardModal = document.getElementById('storyboardModal');
+    const storyboardPdf = document.getElementById('storyboardPdf');
+    const storyboardModalClose = document.getElementById('storyboardModalClose');
+    let storyboardReturnFocus = null;
+    function closeStoryboardModal() {
+      if (!storyboardModal.classList.contains('open')) return;
+      storyboardModal.classList.remove('open');
+      storyboardModal.setAttribute('aria-hidden', 'true');
+      storyboardPdf.removeAttribute('src');
+      if (storyboardReturnFocus) storyboardReturnFocus.focus();
+    }
+    storyboardLink.addEventListener('click', function (event) {
+      event.preventDefault();
+      storyboardReturnFocus = storyboardLink;
+      const pdfPath = storyboardLink.getAttribute('href');
+      document.getElementById('storyboardOpenExternal').href = pdfPath;
+      document.getElementById('storyboardModalTitle').textContent = 'STORYBOARD · ' + document.getElementById('detailTitle').textContent;
+      storyboardPdf.src = pdfPath;
+      storyboardModal.classList.add('open');
+      storyboardModal.setAttribute('aria-hidden', 'false');
+      storyboardModalClose.focus();
+    });
+    storyboardModalClose.addEventListener('click', closeStoryboardModal);
+    storyboardModal.addEventListener('click', e => { if (e.target === storyboardModal) closeStoryboardModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeStoryboardModal(); });
     function openDetail(key) {
       const d = detailData[key]; if (!d) return;
       detailOpen = true;
@@ -3252,7 +3268,7 @@
       detailView.classList.add('open'); detailView.setAttribute('aria-hidden', 'false');
       document.getElementById('detailScroll').scrollTop = 0;
     }
-    function closeDetail() { detailOpen = false; detailVideo.pause(); detailView.classList.remove('open'); detailView.setAttribute('aria-hidden', 'true') }
+    function closeDetail() { closeStoryboardModal(); detailOpen = false; detailVideo.pause(); detailView.classList.remove('open'); detailView.setAttribute('aria-hidden', 'true') }
     document.getElementById('detailBack').addEventListener('click', closeDetail);
     document.querySelectorAll('.work-card').forEach(a => a.addEventListener('click', e => { e.preventDefault(); openDetail(a.dataset.project) }));
     // 메인 그래픽의 기존 마우스 반응 유지
@@ -3306,7 +3322,7 @@
     const tvColors = ['#6b968b', '#835c69', '#729eac'];
     let tvIndex = 0;
     let tvBusy = false;
-    // 영상이 실제로 로딩되지 않았을 때만 안내 문구를 표시합니다.
+   
     function updateTvFallback() {
       const active = tvVideos[tvIndex];
       tvFallback.style.display = active && active.readyState >= 2 ? 'none' : 'flex';
@@ -3349,7 +3365,7 @@
       if (tvBusy) return;
       tvBusy = true;
       const nextIndex = (tvIndex + direction + tvVideos.length) % tvVideos.length;
-      // 다음 영상을 미리 준비해 두되, 준비 중에는 현재 화면을 유지합니다.
+    
       await waitForTvVideo(tvVideos[nextIndex]);
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (reducedMotion) {
@@ -3357,7 +3373,7 @@
         tvBusy = false;
         return;
       }
-      // 노이즈가 화면을 덮은 동안 채널을 변경해 영상 교체 장면을 숨깁니다.
+      
       tvDisplay.classList.add('switching');
       setTimeout(() => showTvChannel(nextIndex), 150);
       setTimeout(() => {
@@ -3367,7 +3383,7 @@
     }
     document.getElementById('tvNext').addEventListener('click', () => changeTvChannel(1));
     document.getElementById('tvPrev').addEventListener('click', () => changeTvChannel(-1));
-    // HOME TV 클릭: CRT 화면 꺼짐 연출 후 상세페이지로 이동 (다른 이동에는 영향 없음)
+   
     tvScreen.addEventListener('click', () => {
       const keys = ['movv', 'janghwa', 'summer'];
       const key = keys[tvIndex];
@@ -3381,19 +3397,19 @@
       window.setTimeout(() => {
         workTarget = 0;
         workX = 0;
-        // 기존 색상 동기화 유지: 상세페이지 진입 시 프레임과 중앙 배경 동시 변경
+      
         frame.classList.add('detail-jump');
         setScene(1, true);
         openDetail(key);
         requestAnimationFrame(() => {
           requestAnimationFrame(() => frame.classList.remove('detail-jump'));
         });
-        // HOME 재방문 시 TV가 정상적으로 재생되도록 상태 초기화
+     
         tvDisplay.classList.remove('crt-power-off');
         tvBusy = false;
       }, reducedMotion ? 0 : 760);
     });
-    // 영상 파일이 없으면 안내 화면 표시 (mp4를 넣으면 영상이 그 위에 나타남)
+
     tvVideos.forEach(v => {
       v.addEventListener('loadeddata', () => { if (v.classList.contains('active')) updateTvFallback(); });
       v.addEventListener('error', () => { if (v.classList.contains('active')) updateTvFallback(); });
@@ -3429,7 +3445,7 @@
           fragment.appendChild(dot);
         }
         layer.appendChild(fragment);
-        // 같은 입자를 각 페이지 배경 안으로 복제. 콘텐츠 위에 오버레이하지 않음.
+       
         document.querySelectorAll('#viewport > .panel').forEach(function (panel) {
           const backgroundParticles = layer.cloneNode(true);
           backgroundParticles.removeAttribute('id');
@@ -3463,7 +3479,7 @@
       const leftCable = panel?.querySelector(':scope > .tv-cable-left');
       const leftLine = leftCable?.querySelector('.tv-cable-line');
       const cableLine = cable?.querySelector('.tv-cable-line');
-      // 왼쪽과 오른쪽 각각 빛 3개씩 생성
+    
       for (const [svg,side] of [[leftCable,'left'],[cable,'right']]) {
         if (!svg) continue;
         for (let i=0;i<INTRO.lightCount;i++) {
@@ -3475,18 +3491,17 @@
       }
       if (!panel || !tv || !title) return;
 
-      // The cable must follow the TV's FINAL layout, not its animated position.
+     
       function placeCable() {
         const pr = panel.getBoundingClientRect();
         const base = getComputedStyle(tv).transform;
         const matrix = base === 'none' ? new DOMMatrix() : new DOMMatrix(base);
-        // TV의 최종 위치를 기준으로 계산 (인트로 이동 중에도 전선은 고정)
+    
         const x = tv.offsetLeft + matrix.m41;
         const y = tv.offsetTop + matrix.m42;
         const widthTV = tv.offsetWidth;
         const heightTV = tv.offsetHeight;
-        // [오른쪽 전선] TV에 연결되는 지점과 꺾임 위치\n        // 참고 스크린샷처럼 TV 오른쪽 아래에서 아래로 내려간 뒤,
-        // 오른쪽으로 뻗었다가 위로 올라가 화면 끝까지 이어지는 선.
+
         const startX = x + widthTV - 85; // TV 안쪽으로 53px 더 연장해 연결부가 가려지도록
         const startY = y + heightTV * .91;
         const width = Math.max(260, pr.width - startX + 40);
@@ -3500,7 +3515,7 @@
         const d = `M0 110 V132 Q0 145 13 145 H${turn-15} Q${turn} 145 ${turn} 130 V24 Q${turn} 10 ${turn+14} 10 H${width}`;
         cable.querySelector('.tv-cable-line')?.setAttribute('d', d);
 
-        // [왼쪽 전선] 참고 이미지 A의 전선 비율: 왼쪽 수평 → 아래로 꺾임 → TV 뒤.
+      
         if (leftCable) {
           const leftWidth = Math.max(120, x + 24);
           const entryY = y + heightTV * .74;
@@ -3515,7 +3530,7 @@
           leftCable.setAttribute('viewBox', `0 0 ${leftWidth} ${h}`);
           const leftD = `M0 ${high} H${bendX-14} Q${bendX} ${high} ${bendX} ${high+14} V${low-14} Q${bendX} ${low} ${bendX+14} ${low} H${leftWidth}`;
           leftCable.dataset.lightPath = leftD;
-          // 전선은 TV → 화면 왼쪽 끝으로 그리기 위해 역방향 경로 사용.
+       
           const reverseD = `M${leftWidth} ${low} H${bendX+14} Q${bendX} ${low} ${bendX} ${low-14} V${high+14} Q${bendX} ${high} ${bendX-14} ${high} H0`;
           leftCable.querySelector('.tv-cable-line')?.setAttribute('d',reverseD);
           leftCable.querySelectorAll('.travel-light').forEach(path => path.setAttribute('d',leftD));
@@ -3535,12 +3550,11 @@
       const base = getComputedStyle(tv).transform;
       const matrix = base === 'none' ? new DOMMatrix() : new DOMMatrix(base);
       const centered = matrix.translate(dx,dy).scale(1.1).toString();
-      // 인트로 중 마우스 패럴랙스/transition이 변형을 덮어써 TV가 옆으로 튀는 현상 방지.
+  
       tv.style.transition = 'none';
       tv.style.setProperty('--mx','0px');
       tv.style.setProperty('--my','0px');
 
-      // TV: 중앙에서 천천히 페이드 인한 후, 타이틀과 함께 최종 위치로 이동.
       const tvIntro = motion(tv, [
         {transform:centered, opacity:0, offset:0},
         {transform:centered, opacity:1, offset:.44},
@@ -3554,14 +3568,14 @@
         tv.style.transition = '';
       }, {once:true});
 
-      // PORTFOLIO 글자가 먼저 나타나기 시작하고, 그 다음 TV 영상 화면이 켜짐.
+   
       motion(title, [
         {letterSpacing:getComputedStyle(document.documentElement).getPropertyValue('--home-title-spacing-start').trim(),opacity:0},
         {letterSpacing:getComputedStyle(document.documentElement).getPropertyValue('--home-title-spacing-end').trim(),opacity:1}
       ], {delay:2000,duration:1100,easing:'cubic-bezier(.2,.7,.18,1)'});
       motion(creator,[{opacity:0},{opacity:1}],{delay:2800,duration:650});
 
-      // CRT: TV 본체가 아닌 영상 화면만 가로선에서 네모로 확장.
+
       motion(display, [
         {transform:'scaleY(.008)', opacity:0, offset:0},
         {transform:'scaleY(.008)', opacity:1, offset:.22},
@@ -3570,7 +3584,7 @@
         {transform:'scaleY(1)', opacity:1, offset:1}
       ], {delay:2650, duration:820, easing:'cubic-bezier(.16,.8,.3,1)'});
 
-      // 기존 전선 곡선은 변경하지 않고 등장 타이밍만 이동.
+ 
       motion(cable,[{opacity:0},{opacity:1}],{delay:INTRO.cableDelay,duration:1});
       // 왼쪽도 오른쪽과 동시에 TV에서 화면 가장자리 방향으로 뻗어 나감.
       motion(leftCable,[{opacity:0},{opacity:1}],{delay:INTRO.cableDelay,duration:1});
@@ -3632,7 +3646,7 @@
     })();
 
 
-    /* Local tracking: only the pointed-at letter expands, with a subtle neighbor falloff. */
+    
     (() => {
       const word = document.querySelector('#hello h1 .title-word');
       if (!word || !window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;

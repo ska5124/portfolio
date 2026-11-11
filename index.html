@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>SIM KEOUNG-AH PORTFOLIO</title>
+  <title>Motion Portfolio — Concept</title>
 
 
 
@@ -13,7 +13,7 @@
     @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap");
 
     /* =============================================================
-       ★ 수정 안내서 — Ctrl+F
+       ★ 수정 안내서 — Ctrl+F로 아래 검색어를 찾으면 돼
        -------------------------------------------------------------
        [PORTFOLIO 글자]  .panel-hello h1  (기본 디자인)
        [PORTFOLIO 자간]  --home-title-spacing-end (최종 자간)
@@ -32,24 +32,35 @@
        ※ 기존 디자인 보존을 위해 다른 선택자에 걸친 CSS 우선순위는 유지.
        ============================================================= */
     :root {
+      /* ★ HOME PORTFOLIO 자간: 여기만 변경하면 CSS와 모션 종료값이 함께 바뀜 */
       --home-title-spacing-start: .10em;
       --home-title-spacing-end: .02em;
     }
 
-    * {box-sizing: border-box}
+    * {
+      box-sizing: border-box
+    }
 
-    html {scroll-behavior: smooth}
+    html {
+      scroll-behavior: smooth
+    }
 
-    body {margin: 0;
+    body {
+      margin: 0;
       background: #0b0d0a;
       color: #f5f0e8;
       font-family: "DM Sans", Arial, sans-serif;
-      overflow-x: hidden}
+      overflow-x: hidden
+    }
 
-    a {color: inherit;
-      text-decoration: none}
+    a {
+      color: inherit;
+      text-decoration: none
+    }
 
-    .brand {font-size: 21px}
+    .brand {
+      font-size: 21px
+    }
 
     .availability {
       border: 1px solid #ffffff7c;
@@ -57,7 +68,8 @@
       padding: 6px 13px;
       font-size: 14px;
       font-weight: 500;
-      white-space: nowrap}
+      white-space: nowrap
+    }
 
     .availability .status-dot {
       display: inline-block;
@@ -66,37 +78,59 @@
       background: #98e68d;
       border-radius: 50%;
       margin-right: 7px;
-      box-shadow: 0 0 10px #b1ffc2}
+      box-shadow: 0 0 10px #b1ffc2
+    }
 
-    .topnav a:hover {opacity: .55}
+    .topnav a:hover {
+      opacity: .55
+    }
 
     .eyebrow {
       font-family: "Barlow Condensed", sans-serif;
       letter-spacing: .13em;
       font-size: 17px;
-      font-weight: 600}
+      font-weight: 600
+    }
 
     .hello-copy {
       position: relative;
       z-index: 2;
-      width: 58%}
+      width: 58%
+    }
 
-    h1,h2,h3,p {margin-top: 0}
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0
+    }
 
-    h1,h2 
-    {font-family: "Barlow Condensed", Impact, sans-serif;
+    h1,
+    h2 {
+      font-family: "Barlow Condensed", Impact, sans-serif;
       font-weight: 900;
       line-height: .77;
-      letter-spacing: -.018em}
+      letter-spacing: -.018em
+    }
 
-    h1 {font-size: clamp(100px, 15vw, 300px);margin: 34px 0 30px}
+    h1 {
+      font-size: clamp(100px, 15vw, 300px);
+      margin: 34px 0 30px
+    }
 
-    h1 span {white-space: nowrap}
+    h1 span {
+      white-space: nowrap
+    }
 
-    h1 b,h2 span {color: #d9e8a6}
+    h1 b,
+    h2 span {
+      color: #d9e8a6
+    }
 
-    .description {font-size: clamp(15px, 1.4vw, 20px);
-      line-height: 1.55}
+    .description {
+      font-size: clamp(15px, 1.4vw, 20px);
+      line-height: 1.55
+    }
 
     .discover {
       display: inline-flex;
@@ -108,9 +142,12 @@
       font-family: "Barlow Condensed";
       font-size: 20px;
       font-weight: 700;
-      letter-spacing: .07em}
+      letter-spacing: .07em
+    }
 
-    .discover span {font-size: 27px}
+    .discover span {
+      font-size: 27px
+    }
 
     .hero-art {
       position: absolute;
@@ -122,7 +159,11 @@
       transition: transform .35s ease-out
     }
 
-    @keyframes float {50% {transform: translateY(-13px) rotate(2deg)}}
+    @keyframes float {
+      50% {
+        transform: translateY(-13px) rotate(2deg)
+      }
+    }
 
     .section-head {
       display: grid;
@@ -2587,6 +2628,29 @@
       }
     }
 
+    /* 모바일 ABOUT: 전체 내용을 페이지 안에서 스크롤하도록 허용 */
+    @media (max-width:700px) {
+      .panel-about.about-redesign {
+        overflow-y: auto !important;
+        overflow-x: hidden;
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+        padding-top: 25px !important;
+        padding-bottom: 38px !important;
+      }
+      .about-redesign .about-layout {
+        flex: 0 0 auto;
+        min-height: min-content;
+      }
+      .about-redesign .about-info-panel {
+        flex-shrink: 0;
+        transform: none;
+        max-height: none;
+      }
+      .about-redesign .about-info-panel:hover { transform: none; }
+    }
+
     /* ABOUT 최종 조정: 카드 호버 삭제, 오른쪽 카드 축소, 왼쪽 타이틀 확대 */
     @media (min-width:1051px) {
       .about-redesign .about-layout {
@@ -2707,6 +2771,7 @@
     }
 
   
+
     /* WORK 썸네일 아래 한글 부제 */
     .work-card .work-subtitle {
       margin: 8px 0 0;
@@ -2896,25 +2961,27 @@
             <p>SCROLL TO EXPLORE THE WORKS <span>→</span></p>
           </div>
           <a href="#detail-movv" class="project work-card" data-project="movv">
-            <div class="thumb"><img src="images/movv.png"
+            <div class="thumb"><!-- 작품 1 썸네일: MOVV / images/movv.png 교체 --><img src="images/movv.png"
                 alt="MOVV 스마트 캐리어 광고 썸네일"></div>
             <div class="project-meta"><span>01 / AI COMMERCIAL</span><span>2026</span></div>
             <h3>MOVV</h3>
             <p class="work-subtitle">스마트 캐리어 브랜드 광고</p>
           </a>
           <a href="#detail-janghwa" class="project work-card" data-project="janghwa">
-            <div class="thumb"><img src="images/janghwa.png"
+            <div class="thumb"><!-- 작품 2 썸네일: 장화홍련 / images/janghwa.png 교체 --><img src="images/janghwa.png"
                 alt="장화홍련 모션 타이틀 썸네일"></div>
             <div class="project-meta"><span>02 / TITLE SEQUENCE</span><span>2026</span></div>
             <h3>장화홍련</h3>
             <p class="work-subtitle">2D 모션그래픽 오프닝 타이틀</p>
           </a>
           <a href="#detail-summer" class="project work-card" data-project="summer">
-            <div class="thumb"><img src="images/summer.png"
-                alt="여름 음료 광고 썸네일"></div>
+            <div class="thumb">
+              <!-- 작품 3 썸네일: FILL THE SUMMER / images/summer.png -->
+              <img src="images/summer.png" alt="FILL THE SUMMER 여름 음료 광고 썸네일">
+            </div>
             <div class="project-meta"><span>03 / AI COMMERCIAL</span><span>2026</span></div>
-            <h3>FILL THE SUMMER </h3>
-            <p class="work-subtitle">청춘 감성 음료 광고 (업로드 예정)</p>
+            <h3>FILL THE SUMMER</h3>
+            <p class="work-subtitle">청춘 감성 음료 광고</p>
           </a>
           <div class="work-end"><span>END OF SELECTED WORKS</span><strong>03 / 03</strong><span>KEEP SCROLLING ↓</span>
           </div>
@@ -3127,6 +3194,17 @@
     requestAnimationFrame(tick);
     function onWheel(delta) {
       if (detailOpen) return;
+      // ABOUT 내부 내용이 남아 있으면 장면 전환보다 내부 스크롤 우선.
+      if (sceneIndex === 2 && window.matchMedia('(max-width:700px)').matches) {
+        const aboutPanel = document.getElementById('about');
+        const atBottom = aboutPanel.scrollTop + aboutPanel.clientHeight >= aboutPanel.scrollHeight - 3;
+        const atTop = aboutPanel.scrollTop <= 3;
+        if ((delta > 0 && !atBottom) || (delta < 0 && !atTop)) {
+          aboutPanel.scrollTop += delta;
+          wheelAccum = 0;
+          return;
+        }
+      }
       if (performance.now() < lockedUntil) return;
       if (sceneIndex === 1) {
         const max = workMax();
@@ -3154,9 +3232,36 @@
       touchY = touchStartY = e.touches[0].clientY;
       touchStartX = e.touches[0].clientX;
       touchIsScrolling = false;
+      if (sceneIndex === 2 && window.matchMedia('(max-width:700px)').matches) {
+        const aboutPanel = document.getElementById('about');
+        aboutPanel.dataset.aboutEdge = aboutPanel.scrollTop <= 3 ? 'top' :
+          (aboutPanel.scrollTop + aboutPanel.clientHeight >= aboutPanel.scrollHeight - 3 ? 'bottom' : '');
+      }
     }, { passive: true });
     viewport.addEventListener('touchmove', e => {
       if (detailOpen || touchY === null || e.touches.length !== 1) return;
+      // 모바일 ABOUT에서는 기본 터치 스크롤을 허용하고, 끝에서만 다음 장면으로 이동.
+      if (sceneIndex === 2 && window.matchMedia('(max-width:700px)').matches) {
+        const aboutPanel = document.getElementById('about');
+        const yNow = e.touches[0].clientY;
+        const deltaAbout = touchY - yNow;
+        touchY = yNow;
+        const atBottom = aboutPanel.scrollTop + aboutPanel.clientHeight >= aboutPanel.scrollHeight - 3;
+        const atTop = aboutPanel.scrollTop <= 3;
+        if ((deltaAbout > 0 && atBottom) || (deltaAbout < 0 && atTop)) {
+          // 스크롤이 끝난 이후의 새 제스처에서만 페이지 전환.
+          if (Math.abs(touchStartY - yNow) > 65 &&
+              ((deltaAbout > 0 && aboutPanel.dataset.aboutEdge === 'bottom') ||
+               (deltaAbout < 0 && aboutPanel.dataset.aboutEdge === 'top'))) {
+            if (e.cancelable) e.preventDefault();
+            onWheel(deltaAbout > 0 ? 65 : -65);
+            aboutPanel.dataset.aboutEdge = '';
+          }
+        } else {
+          aboutPanel.dataset.aboutEdge = '';
+        }
+        return;
+      }
       const y = e.touches[0].clientY;
       const x = e.touches[0].clientX;
       if (!touchIsScrolling) {
@@ -3322,7 +3427,7 @@
     const tvColors = ['#6b968b', '#835c69', '#729eac'];
     let tvIndex = 0;
     let tvBusy = false;
-   
+    // 영상이 실제로 로딩되지 않았을 때만 안내 문구를 표시합니다.
     function updateTvFallback() {
       const active = tvVideos[tvIndex];
       tvFallback.style.display = active && active.readyState >= 2 ? 'none' : 'flex';
@@ -3336,7 +3441,7 @@
       const active = tvVideos[tvIndex];
       tvChannel.textContent = `CH 0${tvIndex + 1}`;
       tvFallback.style.background = tvColors[tvIndex];
-      tvFallback.innerHTML = `<span>CH 0${tvIndex + 1}</span><strong>${tvNames[tvIndex]}</strong><small></small>`;
+      tvFallback.innerHTML = `<span>CH 0${tvIndex + 1}</span><strong>${tvNames[tvIndex]}</strong><small>YOUR VIDEO HERE</small>`;
       updateTvFallback();
       active.play().catch(() => { });
     }
@@ -3365,7 +3470,7 @@
       if (tvBusy) return;
       tvBusy = true;
       const nextIndex = (tvIndex + direction + tvVideos.length) % tvVideos.length;
-    
+      // 다음 영상을 미리 준비해 두되, 준비 중에는 현재 화면을 유지합니다.
       await waitForTvVideo(tvVideos[nextIndex]);
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (reducedMotion) {
@@ -3373,7 +3478,7 @@
         tvBusy = false;
         return;
       }
-      
+      // 노이즈가 화면을 덮은 동안 채널을 변경해 영상 교체 장면을 숨깁니다.
       tvDisplay.classList.add('switching');
       setTimeout(() => showTvChannel(nextIndex), 150);
       setTimeout(() => {
@@ -3383,7 +3488,7 @@
     }
     document.getElementById('tvNext').addEventListener('click', () => changeTvChannel(1));
     document.getElementById('tvPrev').addEventListener('click', () => changeTvChannel(-1));
-   
+    // HOME TV 클릭: CRT 화면 꺼짐 연출 후 상세페이지로 이동 (다른 이동에는 영향 없음)
     tvScreen.addEventListener('click', () => {
       const keys = ['movv', 'janghwa', 'summer'];
       const key = keys[tvIndex];
@@ -3397,19 +3502,19 @@
       window.setTimeout(() => {
         workTarget = 0;
         workX = 0;
-      
+        // 기존 색상 동기화 유지: 상세페이지 진입 시 프레임과 중앙 배경 동시 변경
         frame.classList.add('detail-jump');
         setScene(1, true);
         openDetail(key);
         requestAnimationFrame(() => {
           requestAnimationFrame(() => frame.classList.remove('detail-jump'));
         });
-     
+        // HOME 재방문 시 TV가 정상적으로 재생되도록 상태 초기화
         tvDisplay.classList.remove('crt-power-off');
         tvBusy = false;
       }, reducedMotion ? 0 : 760);
     });
-
+    // 영상 파일이 없으면 안내 화면 표시 (mp4를 넣으면 영상이 그 위에 나타남)
     tvVideos.forEach(v => {
       v.addEventListener('loadeddata', () => { if (v.classList.contains('active')) updateTvFallback(); });
       v.addEventListener('error', () => { if (v.classList.contains('active')) updateTvFallback(); });
@@ -3445,7 +3550,7 @@
           fragment.appendChild(dot);
         }
         layer.appendChild(fragment);
-       
+        // 같은 입자를 각 페이지 배경 안으로 복제. 콘텐츠 위에 오버레이하지 않음.
         document.querySelectorAll('#viewport > .panel').forEach(function (panel) {
           const backgroundParticles = layer.cloneNode(true);
           backgroundParticles.removeAttribute('id');
@@ -3479,7 +3584,7 @@
       const leftCable = panel?.querySelector(':scope > .tv-cable-left');
       const leftLine = leftCable?.querySelector('.tv-cable-line');
       const cableLine = cable?.querySelector('.tv-cable-line');
-    
+      // 왼쪽과 오른쪽 각각 빛 3개씩 생성
       for (const [svg,side] of [[leftCable,'left'],[cable,'right']]) {
         if (!svg) continue;
         for (let i=0;i<INTRO.lightCount;i++) {
@@ -3491,17 +3596,18 @@
       }
       if (!panel || !tv || !title) return;
 
-     
+      // The cable must follow the TV's FINAL layout, not its animated position.
       function placeCable() {
         const pr = panel.getBoundingClientRect();
         const base = getComputedStyle(tv).transform;
         const matrix = base === 'none' ? new DOMMatrix() : new DOMMatrix(base);
-    
+        // TV의 최종 위치를 기준으로 계산 (인트로 이동 중에도 전선은 고정)
         const x = tv.offsetLeft + matrix.m41;
         const y = tv.offsetTop + matrix.m42;
         const widthTV = tv.offsetWidth;
         const heightTV = tv.offsetHeight;
-
+        // [오른쪽 전선] TV에 연결되는 지점과 꺾임 위치\n        // 참고 스크린샷처럼 TV 오른쪽 아래에서 아래로 내려간 뒤,
+        // 오른쪽으로 뻗었다가 위로 올라가 화면 끝까지 이어지는 선.
         const startX = x + widthTV - 85; // TV 안쪽으로 53px 더 연장해 연결부가 가려지도록
         const startY = y + heightTV * .91;
         const width = Math.max(260, pr.width - startX + 40);
@@ -3515,7 +3621,7 @@
         const d = `M0 110 V132 Q0 145 13 145 H${turn-15} Q${turn} 145 ${turn} 130 V24 Q${turn} 10 ${turn+14} 10 H${width}`;
         cable.querySelector('.tv-cable-line')?.setAttribute('d', d);
 
-      
+        // [왼쪽 전선] 참고 이미지 A의 전선 비율: 왼쪽 수평 → 아래로 꺾임 → TV 뒤.
         if (leftCable) {
           const leftWidth = Math.max(120, x + 24);
           const entryY = y + heightTV * .74;
@@ -3530,7 +3636,7 @@
           leftCable.setAttribute('viewBox', `0 0 ${leftWidth} ${h}`);
           const leftD = `M0 ${high} H${bendX-14} Q${bendX} ${high} ${bendX} ${high+14} V${low-14} Q${bendX} ${low} ${bendX+14} ${low} H${leftWidth}`;
           leftCable.dataset.lightPath = leftD;
-       
+          // 전선은 TV → 화면 왼쪽 끝으로 그리기 위해 역방향 경로 사용.
           const reverseD = `M${leftWidth} ${low} H${bendX+14} Q${bendX} ${low} ${bendX} ${low-14} V${high+14} Q${bendX} ${high} ${bendX-14} ${high} H0`;
           leftCable.querySelector('.tv-cable-line')?.setAttribute('d',reverseD);
           leftCable.querySelectorAll('.travel-light').forEach(path => path.setAttribute('d',leftD));
@@ -3550,11 +3656,12 @@
       const base = getComputedStyle(tv).transform;
       const matrix = base === 'none' ? new DOMMatrix() : new DOMMatrix(base);
       const centered = matrix.translate(dx,dy).scale(1.1).toString();
-  
+      // 인트로 중 마우스 패럴랙스/transition이 변형을 덮어써 TV가 옆으로 튀는 현상 방지.
       tv.style.transition = 'none';
       tv.style.setProperty('--mx','0px');
       tv.style.setProperty('--my','0px');
 
+      // TV: 중앙에서 천천히 페이드 인한 후, 타이틀과 함께 최종 위치로 이동.
       const tvIntro = motion(tv, [
         {transform:centered, opacity:0, offset:0},
         {transform:centered, opacity:1, offset:.44},
@@ -3568,14 +3675,14 @@
         tv.style.transition = '';
       }, {once:true});
 
-   
+      // PORTFOLIO 글자가 먼저 나타나기 시작하고, 그 다음 TV 영상 화면이 켜짐.
       motion(title, [
         {letterSpacing:getComputedStyle(document.documentElement).getPropertyValue('--home-title-spacing-start').trim(),opacity:0},
         {letterSpacing:getComputedStyle(document.documentElement).getPropertyValue('--home-title-spacing-end').trim(),opacity:1}
       ], {delay:2000,duration:1100,easing:'cubic-bezier(.2,.7,.18,1)'});
       motion(creator,[{opacity:0},{opacity:1}],{delay:2800,duration:650});
 
-
+      // CRT: TV 본체가 아닌 영상 화면만 가로선에서 네모로 확장.
       motion(display, [
         {transform:'scaleY(.008)', opacity:0, offset:0},
         {transform:'scaleY(.008)', opacity:1, offset:.22},
@@ -3584,7 +3691,7 @@
         {transform:'scaleY(1)', opacity:1, offset:1}
       ], {delay:2650, duration:820, easing:'cubic-bezier(.16,.8,.3,1)'});
 
- 
+      // 기존 전선 곡선은 변경하지 않고 등장 타이밍만 이동.
       motion(cable,[{opacity:0},{opacity:1}],{delay:INTRO.cableDelay,duration:1});
       // 왼쪽도 오른쪽과 동시에 TV에서 화면 가장자리 방향으로 뻗어 나감.
       motion(leftCable,[{opacity:0},{opacity:1}],{delay:INTRO.cableDelay,duration:1});
@@ -3646,7 +3753,7 @@
     })();
 
 
-    
+    /* Local tracking: only the pointed-at letter expands, with a subtle neighbor falloff. */
     (() => {
       const word = document.querySelector('#hello h1 .title-word');
       if (!word || !window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
